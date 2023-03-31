@@ -1,7 +1,10 @@
 version: "2.1"  # optional since v1.27.0
+
 services:
-  test:
-    container_name: test_app
-    image: python
-    build:
-      context: ./flaskex-master
+  flask_app:
+    image: flaskex
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
